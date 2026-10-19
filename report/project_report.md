@@ -44,6 +44,36 @@ The following steps were performed:
 
 The sales calculation validation found 100 matching records and zero mismatches.
 
+### 5.1 Advanced Pandas Operations
+
+Several Pandas operations were used to explore, transform, and summarize the datasets.
+
+**Grouping and Aggregation**
+
+The `groupby()` method was used to group sales records by product and region. Aggregation functions such as `sum()`, `mean()`, and `count()` calculated total revenue, average recorded sale value, and the number of sales records.
+
+**Conditional Filtering**
+
+Boolean conditions were used to filter records based on multiple criteria. The `&` operator combined conditions using AND, while the `|` operator combined conditions using OR. For example, sales from the North region with prices above the overall average were selected for further examination.
+
+**String Operations**
+
+Pandas string methods, including `str.strip()`, `str.title()`, and `str.contains()`, were used to standardize text values and identify product-specific records.
+
+**Datetime Extraction**
+
+The sales date column was converted to datetime format. The year, month, day, and year-month period were extracted to support time-based analysis.
+
+**Merging and Joining**
+
+A left merge was attempted between the sales and customer datasets using their customer ID columns. The merge returned no matching customer IDs. The datasets were therefore analyzed separately to avoid making unsupported customer-level conclusions.
+
+**Pivot Tables**
+
+A pivot table summarized total sales revenue by product and region. Row and column totals made it easier to compare product performance across regions.
+
+These operations demonstrate practical use of Pandas for data preparation, filtering, aggregation, and exploratory analysis.
+
 ## 6. Analysis and Results
 
 ### 6.1 Overall Sales Performance
@@ -132,6 +162,46 @@ The project includes charts for:
 - Customer churn by contract type
 - Customer churn by payment method
 - Product revenue dashboard comparison
+
+## 7.1 Testing and Validation
+
+The project was tested using the available sales and customer datasets to check data quality, calculations, and analysis outputs.
+
+### Data Quality Checks
+
+- Checked dataset dimensions, column names, and data types.
+- Verified that the sales dataset contained 100 records and the customer dataset contained 500 records.
+- Checked both datasets for missing values and duplicate records.
+- Checked for invalid sales dates. No invalid dates were found.
+- Compared `Total_Sales` with `Quantity × Price`. All 100 sales records matched the expected calculation.
+
+### Analysis Checks
+
+- Verified product and regional revenue totals using grouping and aggregation.
+- Confirmed that the pivot table totals matched the overall sales revenue of 12,365,048.
+- Tested conditional filtering using AND and OR operators.
+- Tested string operations for product identification and text standardization.
+- Extracted year, month, and day from the sales dates.
+- Attempted a customer-level merge and confirmed that no customer IDs matched across the two datasets.
+
+### Validation Outcome
+
+The main sales calculations and aggregation results were consistent across the analysis outputs. The customer merge limitation was identified and documented rather than forcing an invalid match. Customer churn statistics were therefore calculated independently from the sales analysis.
+
+The results support the descriptive findings presented in this report. They do not establish causal relationships or predict future customer behavior.
+
+## 7.2 Screenshot Documentation
+
+Screenshots are included to demonstrate the execution of the notebook, data validation, analysis outputs, and visualizations.
+
+The following screenshots should be included in the project submission:
+
+1. **Data Loading and Inspection:** Shows the sales and customer datasets being loaded and their dimensions and column names being displayed.
+2. **Data Cleaning and Validation:** Shows the data quality checks and sales calculation validation results.
+3. **Pandas Analysis:** Shows the grouping, conditional filtering, datetime extraction, or pivot table output.
+4. **Sales Dashboard and Visualizations:** Shows the generated charts for monthly revenue, product performance, regional revenue, and customer churn.
+
+Screenshots should be captured from actual notebook executions and saved in the project's `screenshots/` directory. Each image should be clear, readable, and relevant to the corresponding analysis step.
 
 ## 8. Business Recommendations
 
